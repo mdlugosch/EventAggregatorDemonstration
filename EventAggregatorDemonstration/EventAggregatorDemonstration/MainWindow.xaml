@@ -1,0 +1,27 @@
+﻿<Window x:Class="EventAggregatorDemonstration.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EventAggregatorDemonstration"
+        xmlns:vm="clr-namespace:EventAggregatorDemonstration.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0 0 10 0">
+        <StackPanel Grid.Column="0">
+        <Label Content="EventAggregator-Demonstration"/>
+            <Label Content="Source:" />
+            <TextBox x:Name="tbx_Source" Text="{Binding MessageText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btn_Send" Content="Send" Command="{Binding Send}" />
+        </StackPanel>
+        </Border>
+        <Frame Grid.Column="1" NavigationUIVisibility="Hidden" x:Name="Main" />
+    </Grid>
+</Window>
